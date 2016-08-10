@@ -2,7 +2,8 @@
   "name": "grunt-starter-kit",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "susy": "^2.2.12"
   },
   "overrides": {
     "bootstrap-sass": {
