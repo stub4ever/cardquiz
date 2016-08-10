@@ -25,6 +25,7 @@ $pesticide-debug-depth: false;
     // use this file only for import the sass content, keep it clean.
     $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
     @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+    @import "bower_components/susy/sass/_susy.scss";
 
 /*------------------------------------*\
     #Utilities
@@ -35,7 +36,7 @@ $pesticide-debug-depth: false;
     @import "utilities/typography";
     @import "utilities/spacing";
     @import "utilities/elements";
-    //-> Functionss
+    //-> Functions
     @import "utilities/functions";
     //-> Mixins
     @import "utilities/mixins";
