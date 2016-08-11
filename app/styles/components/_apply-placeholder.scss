@@ -1,0 +1,20 @@
+/*------------------------------------*\
+
+    # Apply Placeholder
+
+*------------------------------------*/
+
+
+.apply-placeholder {
+    &__name {
+        display: flex;
+        height: 45px;
+        width: 220px;
+        input {
+            flex: 2;
+        }
+        button {
+            flex: 1;
+        }
+    }
+}

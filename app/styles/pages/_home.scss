@@ -1,5 +1,31 @@
 /*------------------------------------*\
-    #Home
-    *------------------------------------*/
 
+#Home
 
+*------------------------------------*/
+
+/*------------------------------------*\
+# .apply__wrapper & apply__wrapper
+*------------------------------------*/
+
+.start__wrapper{
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    @extend %flex-center-center;
+}
+
+.register__wrapper {
+    .apply-panel__header {
+        flex: 1 0 100%;
+    }
+}
+
+/*------------------------------------*\
+    # .quiz-play__wrapper
+*------------------------------------*/
+.quiz-play__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

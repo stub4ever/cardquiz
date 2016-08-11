@@ -1,0 +1,22 @@
+/*------------------------------------*\
+
+    # Quiz-question
+
+*------------------------------------*/
+
+.quiz-question {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 125%;
+    }
+    &__display-timer {
+        @extend %flex-center-center;
+        flex: 1;
+    }
+    &__display {
+        @extend %flex-center-center;
+        flex: 4;
+    }
+}

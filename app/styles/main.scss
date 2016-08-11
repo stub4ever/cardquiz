@@ -24,7 +24,7 @@ $pesticide-debug-depth: false;
 
     // use this file only for import the sass content, keep it clean.
     $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-    @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+    // @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
     @import "bower_components/susy/sass/_susy.scss";
 
 /*------------------------------------*\
@@ -40,10 +40,9 @@ $pesticide-debug-depth: false;
     @import "utilities/functions";
     //-> Mixins
     @import "utilities/mixins";
+    //-> Helpers
+    @import "utilities/helpers";
 
-/*------------------------------------*\
-    #Helpers
-    *------------------------------------*/
 
 /*------------------------------------*\
     #Base
@@ -59,10 +58,17 @@ $pesticide-debug-depth: false;
     #Layouts
     *------------------------------------*/
     @import "layouts/header";
+    @import "layouts/wrapper";
 
 /*------------------------------------*\
     #Componenents
     *------------------------------------*/
+    @import "components/apply-panel";
+    @import "components/apply-placeholder";
+    @import "components/btn";
+    @import "components/card-answers";
+    @import "components/quiz-question";
+    @import "components/modal";
 
 /*------------------------------------*\
     #Pages

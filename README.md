@@ -20,3 +20,9 @@ I encourage some combination of OOCSS and BEM for these reasons:
 + It allows for less nesting and lower specificity
 + It helps in building scalable stylesheets
 
+
+# sources 
+
+Json
+- http://www.tutorialspoint.com/json/json_quick_guide.htm
+- http://stackoverflow.com/questions/15009448/creating-a-json-dynamically-with-each-input-value-using-jquery
