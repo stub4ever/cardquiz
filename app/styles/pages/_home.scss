@@ -8,10 +8,11 @@
 # .apply__wrapper & apply__wrapper
 *------------------------------------*/
 
-.start__wrapper{
-    position: relative;
+.index__wrapper{
+    position: fixed;
     z-index: 1;
     height: 100%;
+    top: 0; left: 0; right: 0; bottom: 0;
     @extend %flex-center-center;
 }
 
@@ -25,7 +26,33 @@
     # .quiz-play__wrapper
 *------------------------------------*/
 .quiz-play__wrapper {
+    // Animation
+    $animation-duration: .8s;
+
+    //color
+    $background-color: $waterblur;
+
     display: flex;
     flex-direction: column;
     height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $animation-duration, visibility $animation-duration;
+
+    // quiz player name content
+    .quiz-player__name {
+        background:  $background-color;
+        color: white;
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    &.is--visible {
+        opacity: 1;
+        visibility: visible;
+    }
 }

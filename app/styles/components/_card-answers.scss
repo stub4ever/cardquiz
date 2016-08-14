@@ -6,11 +6,10 @@
 
 
 $susy: (
-  columns: 12,
-  gutters: 0,
+  columns: 12, // 12 columns
+  gutters: 0, // no margin
   container: 100%,
-  debug: (image: show)
-
+  // debug: (image: show)
 );
 
 .card-answers {
@@ -18,20 +17,62 @@ $susy: (
     height: 40%;
     width: 100%;
     display: flex;
+    @include media('<=540px'){
+        flex-direction: column;
+        height: 35%;
+    }
 }
 
 /*------------------------------------*\
     # Card-answer
 *------------------------------------*/
 .card-answer {
-    &__item {
-       @extend %flex-center-center;
-       @include span(6 of 12);
-       background: #f7f7f7;
-       margin: 0;
-       margin-right: 0;
-    }
+    // Animation
+    $animation-duration: .8s;
 
+    // color
+    $background-color: $blindgrey;
+    $text-font-color: $mattpurple;
+
+    $hover-background-color: $mattpurple;
+    $hover-text-color: $white;
+    $hover-opacity: 0.9;
+    $border-color: $white;
+
+    // typography
+    $text-size: 18px;
+    $text-size-small : 16px;
+    $text-bold: 600;
+
+    &__item {
+        @extend %flex-center-center;
+        @include span(6 of 12);
+        background: $background-color;
+        color: $text-font-color;
+        font-size: $text-size;
+        text-align: center;
+        font-weight: 400;
+        margin: 0;
+        margin-right: 0;
+        flex: 1;
+        &:hover {
+            background: $hover-background-color;
+            color: $hover-text-color;
+            opacity: $hover-opacity;
+            font-weight: $text-bold;
+        }
+        &:first-child {
+            border-right: solid 1px $border-color;
+            border-bottom: solid 1px $border-color;
+        }
+        &:nth-child(2){
+            border-bottom: solid 1px $border-color;
+        }
+        @include media('<=540px'){
+            @include span(12);
+            font-size: $text-size-small;
+        }
+    }
 }
 
 

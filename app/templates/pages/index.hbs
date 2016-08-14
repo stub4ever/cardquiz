@@ -1,72 +1,55 @@
----
-custom_script: /scripts/apply.js
----
-
-<section class="start__wrapper">
-    <div class="wrapper__background--img" style="background-image: url('https://hd.unsplash.com/photo-1464245254346-067e4f8baaf2')"></div>
+<!-- Index wrapper -->
+<section class="index__wrapper">
+    <div class="wrapper__background--img" style="background-image: url('images/background.png')"></div>
     <div class="apply-panel">
         <div class="apply-panel__header">
-            <h1>Logo</h1>
+            <h1 class="brand">stuboki</h1>
             <div class="apply-panel__description">
                 <p>Playfull coding quiz game</p>
             </div>
         </div>
         <div class="apply-panel__footer">
-            <a href="#modal-apply" class="btn__apply modal--open">Lets play!</a>
+            <a href="#modal-apply" class="modal__btn">Lets play!</a>
         </div>
     </div> <!-- .apply__panel -->
 </section> <!-- .apply__wrapper -->
 
-
-<section id="#modal-apply" class="modal">
-    <div class="modal__background"></div>
-    <button class="modal--close">Close</button>
-
+<!-- Apply modal wrapper -->
+<section id="modal-apply" class="modal player-section">
+    <div class="wrapper__background--img" style="background-image: url('images/background.png')"></div>
     <div class="apply-panel">
+        <button id="modal--close" class="modal__btn-close">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
         <div class="apply-panel__header">
             <img src="" alt="">
             <div class="apply-panel__description">
-                <h1>Pick your <br>favorite name</h1>
+                <h1 class="apply-panel__description-title">Pick your <br>favorite name</h1>
             </div>
-             <div class="apply-placeholder__name">
+            <span class="new__name"></span>
+            <div id="create__name" class="apply-placeholder__name">
                 <input type="text">
-                <button id="btn__save" class="btn__save">enter</button>
+                <button id="btn__save-name" class="btn__save-name">enter</button>
             </div>
         </div>
     </div> <!-- .apply__panel -->
 </section> <!-- .apply__wrapper -->
 
-
+<!-- Quiz Play Wrapper -->
 <section class="quiz-play__wrapper">
     <div class="quiz-question__inner">
-        <div class="quiz-question__display-timer">
-           <span> 10 </span> sec
-        </div>
         <div class="quiz-question__display">
-            <h1>What is html?</h1>
+            <h1>What does HTML stand for?</h1>
         </div>
     </div>
-
     <div class="card-answers">
-        <div class="card-answer__item">
-            <a id="card-answer--a" href=""></a>
-            <p class="card-answer--a"> A. tags</p>
-        </div> <!-- .card-answer__item -->
-        <div class="card-answer__item">
-            <a id="card-answer--b" href=""></a>
-            <p class="card-answer--b"> B. tags</p>
-        </div> <!-- .card-answer__item -->
+        <a id="card-answer--a" class="card-answer__item"href="">A. Hyper Text Markup Language</a> <!-- .card-answer__item -->
+       <a id="card-answer--c" class="card-answer__item"href="">B. Home Tool Markup Language</a> <!-- .card-answer__item -->
     </div> <!-- .card-answers -->
 
     <div class="card-answers">
-      <div class="card-answer__item">
-            <a id="card-answer--c" href=""></a>
-            <p class="card-answer--c"> C. tags</p>
-        </div> <!-- .card-answer__item -->
-        <div class="card-answer__item">
-            <a id="card-answer--d" href=""></a>
-            <p class="card-answer--d"> D. hyperlink text markup language</p>
-        </div> <!-- .card-answer__item -->
+      <a id="card-answer--e" class="card-answer__item"href="">C. Hyperlinks and Text Markup Language</a> <!-- .card-answer__item -->
+       <a id="card-answer--d" class="card-answer__item"href="">D. Home Text Markup Language </a> <!-- .card-answer__item -->
     </div>
 </section> <!-- .apply__wrapper -->
 

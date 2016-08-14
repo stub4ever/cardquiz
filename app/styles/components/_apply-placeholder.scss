@@ -6,15 +6,43 @@
 
 
 .apply-placeholder {
+    // Animation
+    $animation-duration: .2s;
+
+    // color
+    $btn-color: $waterblur;
+    $btn-color-link: $white;
+    $btn-hover-color: $waterblur;
+    $input-text-color: $darkglow-purple;
+    $btn-hover-opacity: 0.9;
+
+    // typography
+    $text-bold: 600;
+
     &__name {
         display: flex;
+        justify-content: center;
         height: 45px;
-        width: 220px;
+        width: 250px;
+        // text color input
+        input, select, textarea{
+            color: $input-text-color;
+            font-weight: $text-bold;
+        }
         input {
             flex: 2;
+            padding-left: 8px;
         }
-        button {
+        .btn__save-name {
             flex: 1;
+            background: $btn-color;
+            color: $btn-color-link;
+            font-weight: $text-bold;
+            transition: opacity $animation-duration;
+            &:hover {
+                background: $btn-hover-color;
+                opacity: $btn-hover-opacity;
+            }
         }
     }
 }

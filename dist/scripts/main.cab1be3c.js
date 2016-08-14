@@ -1,6 +1,5 @@
 'use strict';
 
-
 /*------------------------------------*\
     # classList helper functions
     see @ https://plainjs.com/javascript/attributes/adding-removing-and-testing-for-classes-9/
@@ -9,18 +8,26 @@
 var hasClass, addClass, removeClass;
 
 if ('classList' in document.documentElement) {
-    hasClass = function (el, className) { return el.classList.contains(className); };
-    addClass = function (el, className) { el.classList.add(className); };
-    removeClass = function (el, className) { el.classList.remove(className); };
+    hasClass = function hasClass(el, className) {
+        return el.classList.contains(className);
+    };
+    addClass = function addClass(el, className) {
+        el.classList.add(className);
+    };
+    removeClass = function removeClass(el, className) {
+        el.classList.remove(className);
+    };
 } else {
-    hasClass = function (el, className) {
-        return new RegExp('\\b'+ className+'\\b').test(el.className);
+    hasClass = function hasClass(el, className) {
+        return new RegExp('\\b' + className + '\\b').test(el.className);
     };
-    addClass = function (el, className) {
-        if (!hasClass(el, className)) { el.className += ' ' + className; }
+    addClass = function addClass(el, className) {
+        if (!hasClass(el, className)) {
+            el.className += ' ' + className;
+        }
     };
-    removeClass = function (el, className) {
-        el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
+    removeClass = function removeClass(el, className) {
+        el.className = el.className.replace(new RegExp('\\b' + className + '\\b', 'g'), '');
     };
 }
 
@@ -31,13 +38,13 @@ if ('classList' in document.documentElement) {
 
 function getAncestor(el, ancestorClass) {
     var parent = el.parentElement;
-    if( !parent.classList.contains(ancestorClass) ) {
+    if (!parent.classList.contains(ancestorClass)) {
         parent = getAncestor(parent, ancestorClass);
     }
     return parent;
 }
 
-(function(){
+(function () {
     /*------------------------------------*\
     # Modal Apply - open/close
     \*------------------------------------*/
@@ -46,19 +53,19 @@ function getAncestor(el, ancestorClass) {
     var modalClose = document.getElementById('modal--close');
 
     // open the modal window
-    modalTrigger.addEventListener('click', function(event){
+    modalTrigger.addEventListener('click', function (event) {
         event.preventDefault();
         if (hasClass(modalTrigger, 'modal__btn')) addClass(modal, 'is--visible');
     });
 
     // close modal window
-    modalClose.addEventListener('click', function(event){
+    modalClose.addEventListener('click', function (event) {
         if (!hasClass(modalClose, 'modal--close')) removeClass(modal, 'is--visible');
     });
 
-    document.addEventListener('keyup', function(event){
+    document.addEventListener('keyup', function (event) {
         // if esc has been released (esc keycode = 27) - close the modal window
-        if(event.keyCode == 27) {
+        if (event.keyCode == 27) {
             if (!hasClass(event.target, 'modal--close')) removeClass(modal, 'is--visible');
         }
     });
@@ -79,7 +86,7 @@ function getAncestor(el, ancestorClass) {
     var quizQuestionInner = getAncestor(quizPlaceholderName, 'quiz-question__inner');
     var quizQuestionContent = quizQuestionInner.parentElement;
 
-    function createName(event){
+    function createName(event) {
         var insertClassName = document.createElement('div');
         insertClassName.setAttribute('class', 'quiz-player__name');
 
@@ -100,16 +107,15 @@ function getAncestor(el, ancestorClass) {
         return false;
     }
 
-    btnSaveName.addEventListener('click', function(){
+    btnSaveName.addEventListener('click', function () {
         createName();
-        if (!hasClass(quizQuestionContent, 'player__name')){
+        if (!hasClass(quizQuestionContent, 'player__name')) {
             removeClass(modal, 'is--visible');
             removeIndexWrapper();
-            addClass(quizPlayWrapper ,'is--visible');
+            addClass(quizPlayWrapper, 'is--visible');
             countPrepare();
         }
     });
-
 
     /*------------------------------------*\
      # 3s Count Preparation
@@ -125,13 +131,12 @@ function getAncestor(el, ancestorClass) {
 
         quizQuestionInner.parentNode.replaceChild(newElement, quizQuestionInner);
 
-        id = setInterval(function() {
+        id = setInterval(function () {
             counter--;
-            if(counter < 0) {
+            if (counter < 0) {
                 newElement.parentNode.replaceChild(quizQuestionInner, newElement);
                 clearInterval(id);
                 quizCounter.start();
-
             } else {
                 newElement.innerHTML = counter.toString();
             }
@@ -142,17 +147,21 @@ function getAncestor(el, ancestorClass) {
      # 5s Quiz Timer
     \*------------------------------------*/
     var quizCounter = new Timer({
-        seconds:5,  // number of seconds to count down
-        onUpdateStatus: function(sec){console.log(sec);}, // callback for each second
-        onCounterEnd: function(){ alert('Next question');} // final action
+        seconds: 5, // number of seconds to count down
+        onUpdateStatus: function onUpdateStatus(sec) {
+            console.log(sec);
+        }, // callback for each second
+        onCounterEnd: function onCounterEnd() {
+            alert('Next question');
+        } // final action
     });
 
     function Timer(options) {
         var timer,
-        instance = this,
-        seconds = options.seconds || 10,
-        updateStatus = options.onUpdateStatus || function () {},
-        counterEnd = options.onCounterEnd || function () {};
+            instance = this,
+            seconds = options.seconds || 10,
+            updateStatus = options.onUpdateStatus || function () {},
+            counterEnd = options.onCounterEnd || function () {};
 
         function decrementCounter() {
             updateStatus(seconds);
@@ -174,10 +183,5 @@ function getAncestor(el, ancestorClass) {
             clearInterval(timer);
         };
     }
-
 })();
-
-
-
-
-
+//# sourceMappingURL=main.js.map

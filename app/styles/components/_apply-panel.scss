@@ -6,15 +6,27 @@
 
 
 .apply-panel {
-    $background-color: #f7f7f7;
+    // color
+    $background-color: $mattpurple;
+    $heading-color: $liteblue;
+    $text-color: $white;
 
+    // typography
+    $font-text-bold: 600;
+    $font-text-size: 18px;
 
+    position: absolute;
+    top: 50%; left: 50%;
+    z-index: 10;
     height: 365px;
     background: $background-color;
     max-width: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    transform: translateY(-50%) translateX(-50%);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+
     &__header, &__footer {
         @extend %flex-center-center;
         overflow: auto;
@@ -22,10 +34,20 @@
     }
     &__header {
         flex: 1 0 75%;
+        .brand {
+           color: $heading-color;
+        }
     }
     &__description {
         text-align: center;
         margin-bottom: 20px;
+        &-title {
+            color: white;
+        }
+        p {
+            font-size: $font-text-size;
+            color: $text-color;
+        }
     }
     &__footer {
         flex: 1 1 25%;

@@ -5,74 +5,75 @@
 *------------------------------------*/
 
 .modal {
+    // Animation
+    $animation-duration: .2s;
+
+    // Color
+    $btn-color: $waterblur;
+    $btn-color-link: $white;
+    $btn-color-hover: $waterblur;
+    $btn-hover-opacity: 0.9;
+
+    // typography
+    $font-text-bold: 600;
+    $btn-font-size: 14px;
+
     position: fixed;
     top: 0; left: 0;
     @extend %flex-center-center;
     height: 100%;
     width: 100%;
-    // opacity: 0;
     z-index: 10;
-    // visibility: hidden;
+
+    // hide modal
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $animation-duration, visibility $animation-duration;
 
     &__background {
-        position: fixed;
+        position: absolute;
         z-index: 2;
         top: 0; left: 0; right: 0; bottom: 0;
         transition: transform .3s;
         background: blanchedalmond;
     }
-
-    // open modal states
-    &.modal--open {
+    // modal button trigger styling
+    &__btn {
+        @extend %flex-center-center;
+        text-transform: uppercase;
+        width: 100%;
+        height: 45px;
+        max-width: 150px;
+        background: $btn-color;
+        font-weight: $font-text-bold;
+        font-size: $btn-font-size;
+        color: $btn-color-link;
+        transition: opacity $animation-duration;
+        &:hover {
+            background: $btn-color-hover;
+            opacity: $btn-hover-opacity;
+        }
+    }
+    // modal button close styling
+    &__btn-close {
+        position: absolute;
+        z-index: 11;
+        top: 0; right: -50px;
+        height: 50px;
+        width: 50px;
+        background: $btn-color;
+        transition: opacity $animation-duration;
+        color: $btn-color-link;
+        font-size: 20px;
+        &:hover {
+            background: $btn-color-hover;
+            opacity: $btn-hover-opacity;
+        }
+    }
+    // show the modal window
+    &.is--visible {
         opacity: 1;
         visibility: visible;
-    }
-    &--visible .apply-panel,
-    &--visible &--close {
-        opacity: 1;
-    }
-    &--open {
-        opacity: 1;
-    }
-
-    // close modal states
-    &--close, .apply-panel, &__background {
-        opacity: 0;
-        transition: opacity .2s;
-        z-index: 2;
-    }
-    &--close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
-        /* replace text with image */
-        height: 56px;
-        width: 56px;
-        background: white;
-        border-radius: 50%;
-        border: none;
-        text-indent: 100%;
-        overflow: hidden;
-        color: transparent;
-        white-space: nowrap;
-        transition: background .2s;
-        &::before, &::after {
-            /* this is the 'X' arrow */
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 2px;
-            width: 24px;
-            background: #FFF;
-        }
-        &::before {
-            transform: translate(-50%) rotate(45deg);
-        }
-        &::after {
-            transform: translate(-50%) rotate(-45deg);
-        }
     }
 }
 
